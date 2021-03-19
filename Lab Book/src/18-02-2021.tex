@@ -1,0 +1,115 @@
+%! Author = ben
+%! Date = 22/02/2021
+
+%%%%%%%%%%%%%% 18/02/2020 %%%%%%%%%%%%%%%%
+\subsection*{\textbf{18/02/2020}}
+%%%%%%%%%%%%% 9:00 %%%%%%%%%%%%%
+\subsubsection*{09:00 - Lead BG}
+Discussion on how to calculate cross section of a process:
+\\
+Integrated Luminosity = $139 \text{fb}^{-1} (\pm 1.7\%)$
+\\
+Coeficient $\epsilon$ given by sum of MC signal weights over that for relevent sample (found using TotExpected.Py)
+
+\subsubsection*{09:30}
+Make stacked plots for pTcone30 and etcone.
+
+\subsubsection*{09:41}
+Plot the
+
+
+
+
+
+Add ttbar\_lep background to stack plots.
+
+
+$\epsilon_{\text{Zee}}$ = 19630128.89
+
+Quoted value for Zee cross section $76.0 \pm 0.8 \pm 2.0 \pm 2.6$ pb (https://arxiv.org/pdf/1212.4620.pdf)
+
+%%%%%%%%%%%%% 10:38 %%%%%%%%%%%%%
+\subsubsection*{10:38}
+
+Rough estimate for the cross section: $\sigma (pp \rightarrow Z \rightarrow ee)$ is given by:
+\begin{align}
+    \sigma &= \frac{N^{selected} - N^{background}}{\epsilon \int L dt}
+\end{align}
+where
+\begin{align}
+    \epsilon &= \frac{\sum \text{weights for all MC events which pass selection cuts}}{\sum \text{weights for all events for that process}}
+\end{align}
+For $Z \rightarrow ee$ use the cuts:
+\begin{itemize}
+    \item lep\_n = 2
+    \item same flavour/type (lep\_type [0] == lep\_type[1])
+    \item opposite charge (lep\_charge [0] != lep\_charge[1])
+    \item invariant mass > 60 GeV
+    \subitem MC not modelled below this point
+\end{itemize}
+For $\sigma (pp \rightarrow Z \rightarrow ee)$:
+\begin{itemize}
+    \item $N^{selected} = 47531$
+    \item $N^{background} = 0$
+    \item $\epsilon = \frac{46740}{19630128.89} = $
+    \item $\int L dt = 10.064 \textbf{fb}^{-1}$
+\end{itemize}
+
+
+cs = 1.9835391029941325e-09
+
+\\
+Other sources of background
+- photon conversion
+- hadronic jets
+-W or t decays can be detected as 2 electrons or muons when one is in fact a hadron jet or electron/moun from other source.
+
+%%%%%%%%%%%%% 14:00 %%%%%%%%%%%%%
+\subsubsection*{14:00 - Lead DG}
+Investigating the decay paths of W-plus and W-minus
+
+There is an exponential decay in the number of leptons apart from a bump at ....
+
+
+%%%%%%%%%%%%% 14:40 %%%%%%%%%%%%%
+\subsubsection*{14:40}
+Plot the invariant mass between 60-150GeV for Wplus\_2lep for events that would look like $Z \rightarrow ll$.
+\\
+Large underflow, so increase range to 0-150 GeV
+\\
+Still not totally decayed, increase range to 0-500 GeV
+\\
+Take the log of y-axis
+
+%%%%%%%%%%%%% 16:10 %%%%%%%%%%%%%
+\subsubsection*{16:00 - Lead BG}
+Finding the background contributions from $W^+ \rightarrow l\nu_l $ with the cut
+\begin{lstlisting}
+     lepCut ="(" + "(lep_charge[0] != lep_charge[1]) && (lep_type[0]==11 && lep_type[1]==11) && lep_n==2 && (inv_mass_Zll > 60e3) && (inv_mass_Zll < 115e3)" + ")"
+\end{lstlisting}
+to select for e+e- pair.
+\begin{align}
+    N^{background}_{t\Bar{t}} &= 236276
+    \\
+    N^{background}_{W^+} &= 2247
+    \\
+    N^{background}_{W-} &= 1785
+\end{align}
+Sum of all weights for all MC events which pass cuts for Zee:
+\begin{align*}
+    = 4595000
+\end{align*}
+
+4817004
+
+$\sigma(Z \rightarrow ee) = 1.94275964340403e-09 b$
+
+
+TODO:
+\begin{itemize}
+    \item Plot $ \Delta \phi$
+    \item $\epsilon$ cut
+\end{itemize}
+
+
+

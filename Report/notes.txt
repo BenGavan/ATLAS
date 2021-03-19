@@ -1,0 +1,11 @@
+
+Theory/Experiment:
+ - What is ATLAS?
+  - magnetic field applied to  detector (solenoidal)
+ - MC data sets
+   - event weightings (MC)
+ -
+
+
+Analysis process:
+ - Cuts (physical and miss modeling)

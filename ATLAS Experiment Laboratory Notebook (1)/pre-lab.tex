@@ -1,0 +1,284 @@
+%%%%%%%%%%%%%%%% Aims %%%%%%%%%%%%%%%%
+\section{Aims}
+\begin{itemize}
+    \item To gain appreciation of the physics processes that can occur in high energy proton-proton collisions at the LHC
+    \item To be introduced to event selection and measurement methods used in particle physics data analysis.
+\end{itemize}
+
+%%%%%%%%%%%%%%%% Objectives %%%%%%%%%%%%%%%%
+\section{Objectives}
+\begin{itemize}
+    \item
+    \item Compare real data collected by the ATLAS experiment with computer-simulated "Monte Carlo" data.
+    \item Measure the cross sections for the production of the Z, W, and Higgs bosons at the LHC and estimate
+    statistical and systematic uncertainties of the results.
+    \item Gain experience of using \it{ROOT}
+    \item Extend the event selections to other sources of events at the LHC, such as:
+    \subitem Higgs decaying to two photons
+    \subitem events containing tau leptons, pairs of vector bosons, top quarks
+    \subitem potential sources of new physics from "Beyond the standard model".
+\end{itemize}
+
+%%%%%%%%%%%%%%%% Background Reading %%%%%%%%%%%%%%%%
+\section{Background Reading}
+
+\subsection{A femto-course in particle physics}
+
+\subsubsection{Leptons}
+Leptons = spin-$\frac{1}{2}$ fundamental particles\\
+Charges of $-1, 0, +1$\\
+Each generation has a flavour -  electron, muon, tau
+
+\subsubsection{Quarks}
+Quarks = spin-$\frac{1}{2}$ fundamental particles\\
+Up-type = charge $+\frac{2}{3}$\\
+Down-type = charge $-\frac{1}{3}$\\
+Bind together via the strong interaction to form Hadrons\\
+Baryons = 3 quarks\\
+Mesons = quark + anti-quark
+
+\subsubsection{Gauge Bosons}
+Responsible for mediating forces
+
+\subsubsection{Higgs Boson}
+Does NOT directly mediate a force.\\
+It's an excitation of the Higgs field\\
+Field gives rise to the masses of the Z \& W bosons. \\
+
+\subsubsection{Parton}
+Parton = any constituent of a hadron (q, $\bar{q}$, g)
+
+
+
+Main interaction of interest for this experiment = the production \& decay of Z, W and Higgs.\\
+Most easily identified decay:
+\begin{align}
+    Z &\rightarrow l^+ l_-
+    \\
+    W^- &\rightarrow l^- \bar{\nu}_l
+    \\
+    H &\rightarrow ZZ^{(*)} \rightarrow llll
+\end{align}
+
+%%%%%%%%%%%%%%%% Getting Started %%%%%%%%%%%%%%%%
+\section{Getting Started}
+Start a Jupyter notebook server running on the lab machine.
+Can then connect to this server using a web browser from anywhere.
+
+\subsection{Logging into the Lab machine}
+\begin{enumerate}
+    \item Open terminal
+    \item \it{ssh atlaslab[lab machine \#]@atlaslab[lab machine \#].blackett.manchester.ac.uk}
+    \item Answer yes
+    \item Enter the password for the specific machine
+\end{enumerate}
+
+\subsection{Setting up the code - TODO once at the start of the experiment}\label{subsec:setting-up-the-code}
+A skeleton version of the code is providied.\\
+To work in python: \textit{cp -r /opt/ATLAS-Project-py ATLAS-Project}\\
+Then type in:\\
+\begin{itemize}
+    \item \textit{cd ATLAS-Project}
+    \item \textit{mkdir outputPlots}
+    \item \textit{ls -l}
+\end{itemize}
+Can then log out using \textit{exit}
+
+\subsection{Starting up the Jupyter notebook server}
+Need to be followed at the beginning of each lab day.\\
+Uses Singularity to run a Jupyter notebook server on the lab machine.
+\begin{enumerate}
+    \item Log into the lab machine using~\ref{subsec:setting-up-the-code}
+
+    \item Configure Singularity
+    \\\\
+    \textbf{export SINGULARITY\_TMPDIR=\$HOME\/.singularity/tmp} - sets up the scratch directory
+    \\
+    \textbf{singularity run -B /data/ATLAS:\$HOME/ATLAS-Project/ATLAS \$HOME/root\_6.22.00-conda.sif bash}
+    \\\\
+    Should see \textbf{INFO: Convert SIF file to sandbox...} and then after about a minute \textbf{Singularity$>$}
+
+    \item Start the Jupyter Notebook
+    \\\\
+    \textbf{jupyter-notebook --no-browser --port=8888}
+    
+    \item Should expect text that looks like:
+    \\\\
+    \textit{Writing notebook server cookie secret to /home/atlaslab16/.local/share/jupyter/runtime/notebook cookie secret
+    Loading IPython parallel extension
+    Serving notebooks from local directory: /home/atlaslab16
+    The Jupyter Notebook is running at: http://localhost:8888/?token=a7ea520d2f4d6f62ea2026ac0aa1edd0a48e935b03539bc4 or http://127.0.0.1:8888/?token=a7ea520d2f4d6f62ea2026ac0aa1edd0a48e935b03539bc4 Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+    .
+    To access the notebook, open this file in a browser: file:///home/atlaslab16/.local/share/jupyter/runtime/nbserver-15700-open.html Or copy and paste one of these URLs: http://localhost:8888/?token=a7ea520d2f4d6f62ea2026ac0aa1edd0a48e935b03539bc4 or http://127.0.0.1:8888/?token=a7ea520d2f4d6f62ea2026ac0aa1edd0a48e935b03539bc4}
+    \\\\
+    Need to keep this terminal window open.
+    
+    \item Open another terminal window:
+    \\\\
+    \textbf{ssh -N -L localhost:1234:localhost:8888 atlaslab[MACHINE NUMBER]@atlaslab[MACHINE NUMBER].blackett.manchester.ac.uk}
+
+    \item Enter the machine password  \\
+    Also keep this terminal window open.
+
+    \item Use any browser to connect to 
+    \\\\
+    \textbf{localhost:1234}
+
+    \item Should be presented with a Jupyter page asking for a \textbf{token} to be entered at the top of the page in the \textbf{token or password} box.
+
+    \item Use the token given in the terminal window from a couple of steps ago.
+\end{enumerate}
+
+\subsection{Closing the Jupyter Notebook and Logging out of the lab machine}
+\begin{enumerate}
+    \item \textbf{ctrl+C} on both terminal windows.
+    \item then enter
+    \\\\
+    \textbf{y} | Close down the Jupyter notebook server\\
+    \textbf{exit} | Closes Singularity\\
+    \textbf{exit} | Logs out from the lab machine.
+\end{enumerate}
+
+\subsection{Using Analysis.py}
+Add names and date to the top of \textbf{Analysis.py} in a comment.\\
+\textbf{lep\_n}: Int = Number of leptons identified in each event.\\
+\textbf{lep\_pt}: Vect = vector of the lepton momenta in the plane transverse (perpendicular) to the beam direction (the z coordinate points along the beam).\\
+All available data sets: \url{http://opendata.atlas.cern/release/2020/documentation/datasets/dataset13.html}\\\\
+Values of energies and momenta are given in units of \textbf{MeV}.
+
+\subsection{Running the Skeleton code and examining the produced kistograms}
+Page 13 (14) for Monte Carlo data sets with string code.  (String code = What is typed in Run-Analysis.py)\\
+Full list ccan be found in the file \textbf{backend/dataSets.py}\\
+\\
+Remember to select \textit{Save and Checkpoint} from \textit{File} drop-down.
+Can then \textit{Revert to Checkpoint} from \textit{File} drop-down.
+\\\\
+The file \textit{Analysis.py} contains a single function, \textit{Analyse}.
+It is called once per data set analysed.
+In this function, will:
+\begin{itemize}
+    \item select events
+    \item plot histograms
+    \item set histogram styles
+    \item write plotted histograms to an output file.
+\end{itemize}
+
+%%%%%%%%%%%%%%%% Analysis %%%%%%%%%%%%%%%%
+\section{Analysis}
+
+Selection cut to select a sample of events corresponding to the desired particular physics processes.\\
+There is a trade off  between  the conflicting aims of achieving as high as possible a selection efficiency for the signal and rejecting as much as possible of the "background" from other physics processed.\\
+It's more important to make estimates of the selection efficiency and the level of residual background.
+And to come up with credible statistical and systematic uncertainties on these estimates.
+\\\\
+Note that the generated particles are not always actually observed in  the ATLAS detector.\\
+Note that the events may contain additional particles (e.g. jets of hadrons produced by radiation from the incoming partons before the annihilation that produced the Z boson)
+
+\subsection{Analysing Z bosons}
+
+ATLAS uses a right-handed coordinate system.
+Origin at the nominal interaction point in the centre of the detector and the z-axis along the beam pipe.
+The x-axis points from the interaction point to the centre of the LHC ring.
+y-axis upwards.
+\\\\
+In the data, the kinematic variables given for each lepton are:
+\begin{itemize}
+    \item transverse (perpendicular) momentum - $p_T$
+    \item azimuthal angle $\phi$ between $p_T$ and the x-axis
+    \item pseudorapidity $\eta$
+\end{itemize}
+Pseudorapitdity is a spatial coordinate describing the angle of a particle relative to the beam axis defined as
+\begin{align}
+    \eta = -ln \left( \tan\left( \frac{\theta}{2} \right) \right)
+\end{align}
+where $theta$ = the polar angle\\
+When high (small angle) the parricle is usually along the beam exis (often lost)
+For massless particles, this is equivalent to the rapidity ($y$) defined as
+\begin{align}
+    y = \frac{1}{2}  \ln \left( \frac{|\vec{p}| + p_L}{|\vec{p}| - p_L} \right)
+\end{align}
+where $p_L$ is the longitudinal momentum and $\vec{p}$ is  the 3-momentum of the particle.
+
+%    TODO: Exercise: Derive a conversion from the kinematic  variable set $(p_T, \phi, \eta)$ to $p_x, p_y, p_z$
+
+\subsubsection{Excercise 6.2}
+Derive an expression for $m_{ll}$ for the decay $Z \rightarrow \mu^+ \mu^-$
+\\\\
+The invarient mass of the system can be expressed directly using....
+\begin{align}
+    m_{ll}^2 = 2 p_{T1} p_{T2} \left( \cosh (\eta_1 - \eta_2) - \cos(\phi_1 - \phi_2) \right)
+\end{align}
+
+\subsection{Making event selction cuts}
+Selection criteria/cuts on each event - e.g. only interested in events with oppositely charged leptons of the same type/flavour.
+\\
+Can restrict the events plotted by using the $p_T$ of the leptons.
+In general, always want to use the  particles with the highest $p_T$.
+
+\subsubsection{Exercise 6.6}
+%    TODO: Find the invariant mass of Z \rightarrow on the MC data set and the 2lep data set
+
+
+Leptons produced in the decay of Z and W bosons tend to be "isolated" from other particles produced in p-p collisions.
+\\
+Leptons from "background" processes (e.g. decay of b quarks) tend to be accompanied by a jet of other particles.
+
+\subsubsection{The Isolation Variables - ptcone30 and etcone20}
+\textit{ptcone30} (ntuple)  = a sum over the $p_T$ of all tracks contained within a cone of half-width 0.3 in $\delta R$ around the lepton direction
+\begin{align}
+    \Delta R = \sqrt{\Delta \phi^2 0}
+\end{align}
+\textit{etcone20} (ntuple) = contains a sum over the $p_T$ cone
+
+
+\subsection{Event weights for Monte Carlo data sets}
+The used ATLAS datasets correspond to an "integrated luminosity" $\int L dt$ = $10.064 \text{fb}^{-1}$ ("inverse femtobarns").
+= a measure of the number of the p=p collisions in ATLAS.
+\\
+The Monte Carlo
+\\\\
+Integral corresponds to the sum of all weights for all the calls of \textit{Fill} for which the plotted value lies between the lower and upper bounds of the histogram.
+It is \textit{Intergral} that should be compared NOT \textit{Entries} (when comparing histograms of ATLAS and MC data).
+
+
+\subsection{Cross Sections, backgrounds, and efficiencies}
+Cross section $\sigma$ for a given process such as $Z \rightarrow ll$:
+\begin{align}
+    \sigma (pp \rightarrow Z \rightarrow ll) &= \frac{N^{selected} -  N^{background}}{\epsilon \int L dt}
+    \\\\
+    N^{\text{selected}} &= \text{ total number of events in the ATLAS data that pass the final selection cuts}
+    \\
+    N^{\text{background}} &= \text{ estimate of the number of background events in the selected data sample}
+    \\
+    N^{selected} -  N^{background} &= \text{estimate of the number of "signal" events in the ATLAS data for the targeted physics process}
+%        \\
+%        \epsilon &= \text{ efficiency for selecting the "signal" events. "signal" = whichever physics process that is having its cross section being measured.\\
+%        Can be estimated using MC for the target sample process. \\
+%        The sum of weights for all signal MC  events that pass the selection cuts needs to be divided by  that corresponding to all generated events for the relevant sample.\\
+%        Info provided by running \textit{TotExpected.py}}
+\end{align}
+To get the sum of weights for all generated $Z \rightarrow ll$ signal MC events:
+\begin{align}
+    & \text{\textbf{python3.4 TotExpected.py}}
+    \\
+    & \text{\textbf{Zee}}
+\end{align}
+
+Fractional uncertainty on $\int L dt$ = 1.7\%
+
+Other systematic uncertainties may arise, for example, from:
+\begin{itemize}
+    \item backgrounds not accounted for
+    \item disagreements between simulation and real data
+\end{itemize}
+Possible catch all to estimate the size of such effects = to re-calculate the cross section having changed your event selection cuts
+
+\subsection{Re-discovering the Higgs boson}
+Simplest Higgs decay mode:
+\begin{align}
+    H \rightarrow ZZ^{(*)} \rightarrow llll
+\end{align}
+ - Look at events producing 4 leptons\\
+ - 2 same-flavour, opposite-charge pairs.
+
+

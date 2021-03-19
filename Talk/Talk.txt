@@ -1,0 +1,141 @@
+Aims
+
+
+Objectives (Danny) (2)
+
+
+Theory (Ben) (2)
+------
+
+Z boson
+ - The
+
+Higgs
+
+
+
+The ATLAS Experiment (Danny) (3)
+--------------------
+
+
+
+Z Boson Analysis
+----------------
+Overview (Ben)
+ - Apply basic cuts using physical motivations (e.g. # leptons = 2 ).
+ - Plot key kinematic variables to motivate/find further cuts.
+ - Calculate cross section for process.
+ - Estimate systematic uncertainties.
+
+Basic initial cuts motivated by the desired end products
+ - Number of end leptons = 2
+ - The lepton pair has to have opposite charge
+ - Both also need to have the lepton type of electron which is represented by the integer 11.
+
+Base invariant mass plot for Z->ee
+
+ptcone
+
+etcone
+
+final plot
+
+final cuts
+
+The same process was repeated for Z -> mumu, which resulted in a higher lower bound on the transverse momentum of 28 GeV.
+We also used a tighter bound on the etcone to be between -1.6 GeV and 5.25 GeV for each lepton .
+
+
+3.1 and 3.2 (Danny)
+calculated cross section
+
+
+3 contribuions to the uncertanty
+ - Statistical = root n
+ - Systematic =
+ - Luminosity = Systematic uncertainty caused by
+    - dominant source of uncertainty is expected to come from the knowledge of the beam profiles
+
+
+
+3. Z boson analysis
+-------------------
+The first cuts were made using physical motivations.
+
+Since the Z decays into a lepton anti lepton pair, the number of leptons need to be equal to two, the charged need to be opposite
+
+Invariant mass
+ - peak at 90 GeV corresponding to the rest mass of the Z boson
+ - disagreement in lower
+
+ptcone
+ - shows the distribution of the sum of momentum around the detected lepton.
+ - should expect most the be isolated
+ - would expect some
+
+etcone
+ - electron shower events
+
+tranverse momentum
+ -
+
+
+The background denomates below 60 GeV - this is easilty seen on the  log plot.
+
+With a mis modelling
+
+The same process was repeated for Z -> mumu, which resulted in a higher lower bound on the transverse momentum of 28 GeV.
+We also used a tighter bound on the etcone to be between -1.6 GeV and 5.25 GeV for each lepton .
+
+
+4. Higgs  (Ben)
+--------------
+To only select the four leptons most likely arising from a Higgs decay, 3 main cuts could be made.
+
+The first logical cut is to only allow events with 4 leptons.
+
+The second is to ensure the 4 leptons could have been produced by the decay of two Z boson.
+Therefore, we need to ensure the 4 leptons are either two electron-positron pairs, two muon anti-muon pairs, or one electron pair and one muon pair.
+Since the leptons are produced in two pairs, each pair needs to have one positive and one negative lepton of the same type.
+This corresponds to the sum of the product of the charge and the lepton type equalling zero.
+For example an electron positron pair would be 11 + -11 which equals 0.
+
+The third arises from the Higgs decaying via one on-shell Z boson and one off-shell virtual Z boson.
+The virtual Z boson is allowed due to quantum fluctuations which allow for violation of the energy-momentum relation momentarily.
+The term "off-shell" is used to describe this Z boson because the situation does not lie on the surface of solutions to the energy-momentum equation in energy-momentum space.
+
+This allows us to make a cut to limit us to situations where one pair of leptons correspond to the invariant mass expected by a real Z boson
+and the other pair to a virtual Z boson.
+Therefore, the real Z boson pair needs to be between 60 GeV and 150 GeV and and the virtual Z boson needs to be less than 60 GeV.
+
+The sum of the product of charge and lepton type has to also be obeyed for each lepton pair considered.
+
+
+(next slide)
+
+The main sources of background was from top-anti-top quarks, Z boson decays resulting in 4 leptons, and Hardronic jets.
+
+(next slide)
+
+When applying these cuts the ATLAS data somewhat agrees with the Monte Carlo Simulation.
+However, the predicted Higgs source monte carlo, is much less than the simulated background.
+
+
+We also considered the other kinematic variables.
+
+Due to the small amount to predicted signal, we were only able to apply a upper bound on the transverse momentum of 70 GeV.
+
+(next slide)
+
+After applying cuts on the isolation variables, of an upper bound of 2 GeV the background was further reduced.
+
+(next slide)
+
+The cross section of found to be 9.541 fb.
+
+With the errors calculated in the same was as for the Z boson.
+
+However, due to the small number of events, the uncertainties were relatively large.
+
+Conclusions (Danny)
+

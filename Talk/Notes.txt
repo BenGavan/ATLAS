@@ -1,0 +1,76 @@
+LHC
+ - bunches of protons in counter-rotating beams made to collide at the "interaction points"
+ - bunch spacing = ...ns
+ - luminosity =
+   - =
+
+
+
+
+ATLAS detector (A Toroidal LHC ApparatuS)
+
+
+
+Cross section = the effective area of a chunk taken out of one beam, by each particle in the other beam, the subsequently
+become the final state we are interested in. [Intro to QFT, Peskin and Schroeder, p101]
+
+Branching ratio = The Branching ratio is a percentage chance that a particle will decay a certain way
+                = is the fraction of particles which decay by an individual decay mode with respect to the total number
+                  of particles which decay.
+                  should be the same for ee mumu and tautau
+
+
+
+
+Presentation format
+-----------------------------------------------------------------------------------------------------------------------
+
+Aims of the experiment
+
+Abstract of results?
+
+We used ATLAS data, so provide background on the experiment and how the detector works.
+
+Intro to Z boson
+ - basic processes we use to select
+
+Include theory exercise
+
+Initial plots to investigate Z (i.e.)
+
+Justification for the cuts made for Z (Plots)
+
+Calculation of cross section
+
+Calculation of statistical uncertainty
+
+Calculation of systematic uncertainty (plots of cross section with varying cuts)
+
+------
+
+Basic theory on the Higgs
+
+Cuts made on the Higgs (physics justification)
+
+Further cuts based on variables
+ - For Z MC data (Z), 2 leptons are isolated and 2 "junk" from b
+ - can therefore be removed via isolation variables
+
+
+Slides:
+atlas
+
+Z
+
+Z analysis
+
+
+Higgs therory
+
+
+Higgs analysis
+
+
+
+
+

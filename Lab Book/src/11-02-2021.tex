@@ -1,0 +1,98 @@
+%! Author = Ben Gavan
+%! Date = 17/02/2021
+
+%%%%%%%%%%%%%% 11/02/2020 %%%%%%%%%%%%%%%%
+\subsection*{\textbf{11/02/2020}}
+
+\subsubsection*{\textbf{09:20} - Lead DG}
+(Exercise 6.4) Plotting the invariant mass using Zmumu MC data
+
+Error in "Analysis.py" - null pointer "hinvmassZll.Write()"
+Remove all unnecessary code\\
+
+
+\subsubsection*{\textbf{10:56}}
+Narrowed error down to ".setAlias" string
+
+\subsubsection*{\textbf{11:00}}
+Error Found:  missing bracket and not using lowercase functions.\\
+Success at plotting the sum of pT (transverse momenta) of the Z boson using MC $Z \rightarrow ll$ data (Z).\\
+Can be seen in Fig.\ref{}
+
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.85\linewidth]{}
+%    \caption{}\label{}
+%\end{figure}
+
+
+\subsubsection*{\textbf{11:12}}
+Success plotting the invariant mass of the Z boson using MC $Z \rightarrow ll$: figure.\ref{fig:zll-fast_inv-mass_50-150GeV_11-02-21_11:12}
+\\
+From MC:\\
+Mean: (9.018 \pm 0.766)e+4 MeV \\
+Expected: (9.1187 \pm 0.00021)e+4 MeV\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\linewidth]{plots/11-02-2021/Zll-fast_inv-mass_50-150GeV_11-02-21_11_12}
+    \caption{Plot of $Z \rightarrow ll$ invariant mass using MC data. From MC: Mean = (9.018±0.766)e+4 MeV. Expected: (9.1187±0.00021)e+4 MeV
+    }\label{fig:zll_inv-mass_50-150GeV_11-02-21_11:12}
+\end{figure}
+
+
+\subsubsection*{\textbf{11:50} - Lead BG}
+
+Notes/thoughts:
+
+\subsubsection*{\textbf{13:00}}
+Break for lunch
+
+\subsubsection*{\textbf{14:00} - Lead DG}
+Working on exercise 6.7:\\
+Plot graphs of ptcone30 and etcone20 for leptons that are same flavour, oppositely charged. (Zee, Zmumu, 2lep)
+
+ptcone30 = scalar sum of track $p_T$ in a cone of R=0.3\\
+
+Create new function 'Ptcones' in "Analysis.py" to plot the Ptcone30 of a specific lepton.
+
+\subsubsection*{\textbf{15:10}}
+To start plot ptcone30[0]:
+\\
+First plot - figure.\ref{fig:ptcone30_Zee_0-4GeV} of large range (0-4 GeV).\\
+Data point at 0 GeV then a gap in data to 1 GeV due to. an artifact of the data of 0 - 1 GeV not being detected. \\
+Would have expected an exponential decay.
+
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.85\linewidth]{plots/11-02-2021/Zee-fast_pTcone30(0)_ 0-4Gev.png}
+%    \caption{Plot of $Z \rightarrow ll$ pTcone30(0) using MC data.
+%    }\label{fig:ptcone30_Zee_0-4GeV}
+%\end{figure}
+
+
+\subsubsection*{\textbf{16:00} - Lead BG}
+
+\subsubsection*{\textbf{16:11}}
+Question:\\
+Why is there not lep\_type = tau??
+Plotting the \textbf{invariant mass} of ATLAS experimental data for at least 2 leptons with cuts to select for individual decay paths over energy range 0-150 GeV
+\begin{itemize}
+    \item $Z \rightarrow ee$ (lep\_type = 11 \&\& 2 particles opposite charge)
+    \item $Z \rightarrow \mu\mu$ (lep\_type = 13 \&\& 2 particles opposite charge)
+    \item $Z \rightarrow \tau\tau$ (Non ee and non $\tau\tau$)
+\end{itemize}
+
+Running e-e pair which is oppositely charged. Figure.\ref{fig:2lep_ee-pair_0-140GeV_11-02-21_16-12}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\linewidth]{plots/11-02-2021/2lep-fast_ee-pair_inv-mass_0-140GeV_11-02-21_16-12}
+    \caption{Plot of $Z \rightarrow ll$ pTcone30 using MC data.
+    }\label{fig:2lep_ee-pair_0-140GeV_11-02-21_16-12}
+\end{figure}
+
+Running mu-mu pair which is oppositely charged
+
+Running non e-e and non mu-mu pair which is oppositely charged
+returned plot no tau-tau pairs with opposite charge

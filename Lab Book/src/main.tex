@@ -1,0 +1,90 @@
+%! Author = ben
+%! Date = 09/02/2021
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage[top=2.54cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{gensymb}
+\usepackage{setspace}
+\usepackage{comment}
+\usepackage[version=4]{mhchem}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{Python}{
+    keywords={cd, image, container, run, pull},
+    keywordstyle=\color{blue}\bfseries,
+}
+
+\lstset{
+    language=Python,
+    backgroundcolor=\color{lightgray},
+    extendedchars=true,
+    basicstyle=\footnotesize\ttfamily,
+    showstringspaces=false,
+    showspaces=false,
+    numbers=left,
+    numberstyle=\footnotesize,
+    numbersep=9pt,
+    tabsize=4,
+    breaklines=true,
+    showtabs=false,
+    captionpos=b
+}
+
+% Document
+\begin{document}
+
+    \maketitle
+    \section{Notes/Timeline}
+    \textbf{Conventions:}\\
+    file names of plots in the format: [Data set]\_[cuts]\_[quantity plotted]\_[energy range]\_[date dd-mm-yy]\_[time (24 hr)].png
+    \\\\
+    \textbf{Notes:}
+    \begin{itemize}
+        \item If you want to use a logarithmic scale when plotting a histogram in python then you use canvas.SetLogy(1) or canvas.SetLogx(1) depending on which axis you want to be logarithmic. 'canvas' is your TCanvas object
+    \end{itemize}
+    \textbf{ROOT Notes}
+    \begin{itemize}
+        \item lep\_type values:
+        \subitem 11 = electrons
+        \subitem 13 = muons
+
+        \item Units = MeV
+    \end{itemize}
+    \textbf{Acronyms}
+    \begin{itemize}
+        \item MC = Monte Carlo (Simulation)
+    \end{itemize}
+%%%%%%%%%%%%%% 09/02/2020 %%%%%%%%%%%%%%%%
+    \include{09-02-2021}
+
+%%%%%%%%%%%%%% 11/02/2020 %%%%%%%%%%%%%%%%
+    \newpage
+    \include{11-02-2021}
+
+%%%%%%%%%%%%%% 16/02/2020 %%%%%%%%%%%%%%%%
+    \newpage
+    \include{16-02-2021}
+
+%%%%%%%%%%%%%% 18/02/2020 %%%%%%%%%%%%%%%%
+    \newpage
+    \include{18-02-2021}
+
+%%%%%%%%%%%%%% 23/02/2020 %%%%%%%%%%%%%%%%
+    \newpage
+    \include{23-02-2021}
+
+\end{document}

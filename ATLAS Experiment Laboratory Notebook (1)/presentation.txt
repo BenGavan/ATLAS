@@ -1,0 +1,49 @@
+Aims of the experiment 
+
+Abstract of results?
+
+We used ATLAS data, so provide background on the experiment and how the detector works.
+
+Intro to Z boson
+ - basic processes we use to select 
+
+Include theory exercise
+
+Initial plots to investigate Z (i.e.)
+
+Justification for the cuts made for Z (Plots)
+
+Calculation of cross section
+
+Calculation of statistical uncertainty 
+
+Calculation of systematic uncertainty (plots of cross section with varying cuts)
+
+------
+
+Basic theory on the Higgs 
+
+Cuts made on the Higgs (physics justification)
+
+Further cuts based on variables
+ - For Z MC data (Z), 2 leptons are isolated and 2 "junk" from b 
+ - can therefore be removed via isolation variables
+
+
+Slides:
+atlas 
+
+Z
+
+Z analysis 
+
+
+Higgs therory
+
+
+Higgs analysis 
+
+
+
+
+

@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=2.54cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{gensymb}
+\usepackage{setspace}
+\usepackage{comment}
+\usepackage[version=4]{mhchem}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{Python}{
+    keywords={for, if, in, run, not},
+    keywordstyle=\color{blue}\bfseries,
+}
+
+\lstset{
+    language=Python,
+    backgroundcolor=\color{lightgray},
+    extendedchars=true,
+    basicstyle=\footnotesize\ttfamily,
+    showstringspaces=false,
+    showspaces=false,
+    numbers=left,
+    numberstyle=\footnotesize,
+    numbersep=9pt,
+    tabsize=4,
+    breaklines=true,
+    showtabs=false,
+    captionpos=b
+}
+
+\title{\textbf{ATLAS Experiment Shared Laboratory Notebook}}
+\author{Daniel Granger (10238277) and Ben Gavan (10301715)}
+\date{February/March 2021}
+
+\begin{document}
+
+\maketitle
+
+% \tableofcontents
+
+\section{Notes/Timeline}
+\textbf{Conventions:}\\
+file names of plots in the format: [Data set]\_[cuts]\_[quantity plotted]\_[energy range]\_[date dd-mm-yy]\_[time (24 hr)].png
+\\\\
+\textbf{Notes:}
+\begin{itemize}
+    \item If you want to use a logarithmic scale when plotting a histogram in python then you use canvas.SetLogy(1) or canvas.SetLogx(1) depending on which axis you want to be logarithmic. 'canvas' is your TCanvas object
+    
+    \item Lead xx == the person programming - other person taking notes in lab book
+\end{itemize}
+\textbf{ROOT Notes}
+\begin{itemize}
+    \item lep\_type values:
+    \subitem 11 = electrons 
+    \subitem 13 = muons
+    
+    \item Units = MeV
+\end{itemize}
+\textbf{Acronyms}
+\begin{itemize}
+    \item MC = Monte Carlo (Simulation)
+\end{itemize}
+
+\textbf{Login steps}:
+\begin{lstlisting}
+ssh atlaslab17@atlaslab17.blackett.manchester.ac.uk
+
+export SINGULARITY_TMPDIR=$HOME/.singularity/tmp
+
+singularity run -B /data/ATLAS:$HOME/ATLAS-Project/ATLAS $HOME/root_6.22.00-conda.sif bash
+
+jupyter-notebook --no-browser --port=8888
+
+New Window:
+ssh -N -L localhost:1234:localhost:8888 atlaslab17@atlaslab17.blackett.manchester.ac.uk
+\end{lstlisting}
+
+% 2.0273066850004195e-09
+
+\textbf{Spread sheet with cross sections:}
+Google sheets in Ben's google drive (Uni/ATLAS/ATLAS)\\ (https://docs.google.com/spreadsheets/d/1ZvxdJ9FcFHIEeIkDnRsDUL7tZVwtQ7-E249czEe7vmM/edit#gid=0)
+
+%%%%%%%%%%%%%% pre-lab %%%%%%%%%%%%%%%% 
+\include{pre-lab}
+
+%%%%%%%%%%%%%% 09/02/2020 %%%%%%%%%%%%%%%% 
+\include{09-02-2021}
+
+%%%%%%%%%%%%%% 11/02/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{11-02-2021}
+ 
+%%%%%%%%%%%%%% 16/02/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{16-02-2021}
+
+%%%%%%%%%%%%%% 18/02/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{18-02-2021}
+
+%%%%%%%%%%%%%% 23/02/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{23-02-2021}
+
+%%%%%%%%%%%%%% 25/02/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{25-02-2021}
+
+%%%%%%%%%%%%%% 27/02/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{27-02-2021}
+
+
+%%%%%%%%%%%%%% 02/03/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{02-03-2021}
+
+%%%%%%%%%%%%%% 03/03/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{03-03-2021}
+
+%%%%%%%%%%%%%% 04/03/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{04-03-2021}
+
+%%%%%%%%%%%%%% 05/03/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{05-03-2021}
+
+%%%%%%%%%%%%%% 06/03/2020 %%%%%%%%%%%%%%%% 
+\newpage
+\include{06-03-2021}
+
+%%%%%%%%%%%%%% results summary %%%%%%%%%%%%%%%%
+\include{final_results}
+
+
+
+\end{document}
